@@ -1,5 +1,8 @@
 # AI Subscription API
 
+[![CI](https://github.com/benfaerber/ai-subscription-api/actions/workflows/ci.yml/badge.svg)](https://github.com/benfaerber/ai-subscription-api/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@benfaerber/ai-subscription-api)](https://www.npmjs.com/package/@benfaerber/ai-subscription-api)
+
 Use your ChatGPT Plus/Pro, Claude Pro/Max, and Gemini subscriptions programmatically. No API keys required.
 
 ## Installation
