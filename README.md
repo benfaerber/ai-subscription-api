@@ -1,14 +1,14 @@
 # AI Subscription API
 
 [![CI](https://github.com/benfaerber/ai-subscription-api/actions/workflows/ci.yml/badge.svg)](https://github.com/benfaerber/ai-subscription-api/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/@benfaerber/ai-subscription-api)](https://www.npmjs.com/package/@benfaerber/ai-subscription-api)
+[![npm version](https://img.shields.io/npm/v/ai-subscription-api)](https://www.npmjs.com/package/ai-subscription-api)
 
 Use your ChatGPT Plus/Pro, Claude Pro/Max, and Gemini subscriptions programmatically. No API keys required.
 
 ## Installation
 
 ```bash
-bun add @benfaerber/ai-subscription-api
+bun add ai-subscription-api
 ```
 
 ## Requirements
@@ -18,7 +18,7 @@ bun add @benfaerber/ai-subscription-api
 ## Quick Start
 
 ```typescript
-import { SubscriptionClient } from "@benfaerber/ai-subscription-api"
+import { SubscriptionClient } from "ai-subscription-api"
 
 const client = new SubscriptionClient()
 
@@ -105,7 +105,7 @@ import {
   MemoryCredentialStore,
   FileCredentialStore,
   StaticCredentialStore,
-} from "@benfaerber/ai-subscription-api"
+} from "ai-subscription-api"
 
 // In-memory (session only)
 const client = new SubscriptionClient({
@@ -135,7 +135,7 @@ const client = new SubscriptionClient({
 Implement the `CredentialStore` interface:
 
 ```typescript
-import type { CredentialStore, Credentials } from "@benfaerber/ai-subscription-api"
+import type { CredentialStore, Credentials } from "ai-subscription-api"
 
 class RedisCredentialStore implements CredentialStore {
   async get(provider: string): Promise<Credentials | undefined> { ... }

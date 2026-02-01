@@ -1,5 +1,5 @@
 {
-  "name": "@benfaerber/ai-subscription-api",
+  "name": "ai-subscription-api",
   "version": "0.0.1",
   "description": "Use ChatGPT, Claude, and Gemini subscriptions programmatically without API keys",
   "type": "module",

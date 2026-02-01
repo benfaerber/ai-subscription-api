@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@benfaerber/ai-subscription-api": "workspace:*"
+    "ai-subscription-api": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest",
