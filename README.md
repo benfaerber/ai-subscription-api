@@ -5,7 +5,7 @@ Use your ChatGPT Plus/Pro and Claude Pro/Max subscriptions programmatically. No 
 ## Installation
 
 ```bash
-bun add @opencode-ai/subscription-auth
+bun add @benfaerber/subscription-auth
 ```
 
 ## Quick Start
