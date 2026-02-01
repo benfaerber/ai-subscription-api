@@ -93,12 +93,7 @@ export class ChatGPTProvider extends BaseProvider {
     super(store)
   }
 
-  async startLogin(method: "browser" | "headless"): Promise<{ session: LoginSession; complete: LoginCallback }> {
-    if (method === "browser") return this.browserLogin()
-    return this.headlessLogin()
-  }
-
-  private async browserLogin(): Promise<{ session: LoginSession; complete: LoginCallback }> {
+  async startLogin(_method: "browser" | "headless"): Promise<{ session: LoginSession; complete: LoginCallback }> {
     const pkce = await generatePKCE()
     const state = base64UrlEncode(crypto.getRandomValues(new Uint8Array(32)).buffer)
     const redirectUri = `http://localhost:${OAUTH_PORT}/auth/callback`
@@ -180,59 +175,6 @@ export class ChatGPTProvider extends BaseProvider {
     return {
       session: { url, instructions: "Complete authorization in your browser.", method: "browser" },
       complete: async () => promise,
-    }
-  }
-
-  private async headlessLogin(): Promise<{ session: LoginSession; complete: LoginCallback }> {
-    const res = await fetch(`${ISSUER}/api/accounts/deviceauth/usercode`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "User-Agent": "subscription-auth/0.0.1" },
-      body: JSON.stringify({ client_id: CLIENT_ID }),
-    })
-    if (!res.ok) throw new Error("Failed to initiate device authorization")
-
-    const data = (await res.json()) as { device_auth_id: string; user_code: string; interval: string }
-    const interval = Math.max(parseInt(data.interval) || 5, 1) * 1000
-
-    return {
-      session: {
-        url: `${ISSUER}/codex/device`,
-        instructions: `Enter code: ${data.user_code}`,
-        method: "headless",
-      },
-      complete: async () => {
-        while (true) {
-          const pollRes = await fetch(`${ISSUER}/api/accounts/deviceauth/token`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "User-Agent": "subscription-auth/0.0.1" },
-            body: JSON.stringify({ device_auth_id: data.device_auth_id, user_code: data.user_code }),
-          })
-
-          if (pollRes.ok) {
-            const pollData = (await pollRes.json()) as { authorization_code: string; code_verifier: string }
-            const tokens = await this.exchangeCode(
-              pollData.authorization_code,
-              `${ISSUER}/deviceauth/callback`,
-              pollData.code_verifier,
-            )
-            const creds: OAuthCredentials = {
-              type: "oauth",
-              refresh: tokens.refresh_token,
-              access: tokens.access_token,
-              expires: Date.now() + (tokens.expires_in ?? 3600) * 1000,
-              accountId: extractAccountId(tokens),
-            }
-            await this.store.set(this.id, creds)
-            return creds
-          }
-
-          if (pollRes.status !== 403 && pollRes.status !== 404) {
-            throw new Error("Device authorization failed")
-          }
-
-          await Bun.sleep(interval + 3000)
-        }
-      },
     }
   }
 
