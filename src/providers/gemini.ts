@@ -8,6 +8,11 @@ import {
 } from "../provider"
 import type { CredentialStore, OAuthCredentials } from "../credentials"
 
+/**
+ * Public OAuth client credentials from Gemini CLI.
+ * For installed/CLI apps, the client secret is not truly secret - this is standard OAuth practice.
+ * @see https://developers.google.com/identity/protocols/oauth2/native-app
+ */
 const CLIENT_ID = "681255809395-oo8ft2oprdrnp9e3aqf6av3hmdib135j.apps.googleusercontent.com"
 const CLIENT_SECRET = "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"
 const REDIRECT_URI = "http://localhost:8085/oauth2callback"

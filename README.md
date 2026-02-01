@@ -8,6 +8,10 @@ Use your ChatGPT Plus/Pro, Claude Pro/Max, and Gemini subscriptions programmatic
 bun add @benfaerber/ai-subscription-api
 ```
 
+## Requirements
+
+- Bun runtime (Node.js is not supported)
+
 ## Quick Start
 
 ```typescript

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
   "scripts": {
     "test": "bun test",
     "typecheck": "tsc --noEmit",
