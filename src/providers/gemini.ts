@@ -84,14 +84,14 @@ export class GeminiProvider extends BaseProvider {
   readonly name = "Gemini"
   readonly id = "gemini"
   readonly models = [
-    "gemini-3.0-flash-preview",
-    "gemini-3.0-pro-preview",
+    "gemini-3-pro-preview",
+    "gemini-3-flash-preview",
     "gemini-2.5-pro",
     "gemini-2.5-flash",
     "gemini-2.0-flash",
     "gemini-2.0-flash-lite",
   ]
-  readonly defaultModel = "gemini-3.0-flash-preview"
+  readonly defaultModel = "gemini-3-flash-preview"
 
   private configuredProjectId?: string
   private resolvedProjectId?: string
