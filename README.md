@@ -164,10 +164,12 @@ const client = new SubscriptionClient({
 
 ### Gemini
 
-- `gemini-2.5-flash` (default)
+- `gemini-3.0-flash-preview` (default)
+- `gemini-3.0-pro-preview`
 - `gemini-2.5-pro`
 - `gemini-2.0-flash`
 - `gemini-2.0-flash-lite`
+
 
 ## Scripts
 
@@ -178,6 +180,8 @@ bun test
 # Run interactive CLI example
 bun run example
 ```
+
+Use `bun run example` to play with the APIs.
 
 ## Notes
 

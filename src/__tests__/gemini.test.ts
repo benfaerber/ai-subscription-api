@@ -21,13 +21,15 @@ describe("GeminiProvider", () => {
     })
 
     it("should have models list", () => {
+      expect(provider.models).toContain("gemini-3.0-flash-preview")
+      expect(provider.models).toContain("gemini-3.0-pro-preview")
       expect(provider.models).toContain("gemini-2.5-pro")
       expect(provider.models).toContain("gemini-2.5-flash")
       expect(provider.models).toContain("gemini-2.0-flash")
     })
 
     it("should have default model", () => {
-      expect(provider.defaultModel).toBe("gemini-2.5-flash")
+      expect(provider.defaultModel).toBe("gemini-3.0-flash-preview")
     })
   })
 
