@@ -1,6 +1,6 @@
 # AI Subscription API
 
-Use your ChatGPT Plus/Pro and Claude Pro/Max subscriptions programmatically. No API keys required.
+Use your ChatGPT Plus/Pro, Claude Pro/Max, and Gemini subscriptions programmatically. No API keys required.
 
 ## Installation
 
@@ -29,10 +29,11 @@ console.log(response)
 
 ## Providers
 
-| Provider | ID        | Subscription |
-| -------- | --------- | ------------ |
-| Claude   | `claude`  | Pro/Max      |
-| ChatGPT  | `chatgpt` | Plus/Pro     |
+| Provider | ID        | Subscription      |
+| -------- | --------- | ----------------- |
+| Claude   | `claude`  | Pro/Max           |
+| ChatGPT  | `chatgpt` | Plus/Pro          |
+| Gemini   | `gemini`  | Free/Pro          |
 
 ## Login Methods
 
@@ -47,7 +48,7 @@ const code = await getCodeFromUser()
 await complete(code)
 ```
 
-### ChatGPT (Browser)
+### ChatGPT
 
 ```typescript
 const { session, complete } = await client.login("chatgpt", "browser")
@@ -55,13 +56,12 @@ Bun.spawn(["open", session.url])
 await complete() // Waits for OAuth callback
 ```
 
-### ChatGPT (Headless)
+### Gemini
 
 ```typescript
-const { session, complete } = await client.login("chatgpt", "headless")
-console.log(session.url) // https://auth.openai.com/codex/device
-console.log(session.instructions) // "Enter code: XXXX-XXXX"
-await complete() // Polls until authorized
+const { session, complete } = await client.login("gemini", "browser")
+Bun.spawn(["open", session.url])
+await complete() // Waits for OAuth callback
 ```
 
 ## Chat
@@ -157,6 +157,13 @@ const client = new SubscriptionClient({
 - `gpt-5.1-codex-mini`
 - `gpt-5.1-codex-max`
 - `gpt-5.2-codex`
+
+### Gemini
+
+- `gemini-2.5-flash` (default)
+- `gemini-2.5-pro`
+- `gemini-2.0-flash`
+- `gemini-2.0-flash-lite`
 
 ## Scripts
 

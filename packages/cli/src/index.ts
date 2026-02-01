@@ -22,9 +22,7 @@ function openUrl(url: string) {
 
 async function login(providerId: string) {
   const provider = client.getProvider(providerId)
-  const method = providerId === "chatgpt" ? await prompt("Method (browser/headless): ") as "browser" | "headless" : "browser"
-  
-  const { session, complete } = await client.login(providerId, method)
+  const { session, complete } = await client.login(providerId, "browser")
   console.log(`\nOpen: ${session.url}`)
   console.log(session.instructions)
   openUrl(session.url)
