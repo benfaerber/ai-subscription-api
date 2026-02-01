@@ -164,9 +164,10 @@ const client = new SubscriptionClient({
 
 ### Gemini
 
-- `gemini-3.0-flash-preview` (default)
-- `gemini-3.0-pro-preview`
+- `gemini-3-flash-preview` (default)
+- `gemini-3-pro-preview`
 - `gemini-2.5-pro`
+- `gemini-2.5-flash`
 - `gemini-2.0-flash`
 - `gemini-2.0-flash-lite`
 
