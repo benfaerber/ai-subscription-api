@@ -5,13 +5,13 @@ Use your ChatGPT Plus/Pro and Claude Pro/Max subscriptions programmatically. No 
 ## Installation
 
 ```bash
-bun add @benfaerber/subscription-auth
+bun add @benfaerber/ai-subscription-api
 ```
 
 ## Quick Start
 
 ```typescript
-import { SubscriptionClient } from "@opencode-ai/subscription-auth"
+import { SubscriptionClient } from "@benfaerber/ai-subscription-api"
 
 const client = new SubscriptionClient()
 
@@ -98,7 +98,7 @@ import {
   MemoryCredentialStore,
   FileCredentialStore,
   StaticCredentialStore,
-} from "@opencode-ai/subscription-auth"
+} from "@benfaerber/ai-subscription-api"
 
 // In-memory (session only)
 const client = new SubscriptionClient({
@@ -128,7 +128,7 @@ const client = new SubscriptionClient({
 Implement the `CredentialStore` interface:
 
 ```typescript
-import type { CredentialStore, Credentials } from "@opencode-ai/subscription-auth"
+import type { CredentialStore, Credentials } from "@benfaerber/ai-subscription-api"
 
 class RedisCredentialStore implements CredentialStore {
   async get(provider: string): Promise<Credentials | undefined> { ... }
@@ -146,9 +146,9 @@ const client = new SubscriptionClient({
 
 ### Claude
 
-- `claude-sonnet-4-20250514` (default)
-- `claude-opus-4-20250514`
-- `claude-3-5-sonnet-20241022`
+- `claude-sonnet-4-5-20250929` (default)
+- `claude-opus-4-5-20251101`
+- `claude-haiku-4-5-20251001`
 
 ### ChatGPT
 
@@ -158,11 +158,14 @@ const client = new SubscriptionClient({
 - `gpt-5.1-codex-max`
 - `gpt-5.2-codex`
 
-## Test Script
+## Scripts
 
 ```bash
-cd packages/subscription-auth
-bun run test
+# Run tests
+bun test
+
+# Run interactive CLI example
+bun run example
 ```
 
 ## Notes
