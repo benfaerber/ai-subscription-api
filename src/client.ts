@@ -2,6 +2,7 @@ import { FileCredentialStore, type CredentialStore } from "./credentials"
 import type { ChatOptions, ChatResponse, Message, Provider } from "./provider"
 import { ChatGPTProvider } from "./providers/chatgpt"
 import { ClaudeProvider } from "./providers/claude"
+import { GeminiProvider } from "./providers/gemini"
 
 export type ClientOptions = {
   store?: CredentialStore
@@ -15,6 +16,7 @@ export class SubscriptionClient {
     this.store = options.store || new FileCredentialStore()
     this.registerProvider(new ChatGPTProvider(this.store))
     this.registerProvider(new ClaudeProvider(this.store))
+    this.registerProvider(new GeminiProvider(this.store))
   }
 
   registerProvider(provider: Provider) {

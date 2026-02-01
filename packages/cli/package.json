@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@opencode-ai/subscription-auth": "file:../.."
+    "@benfaerber/ai-subscription-api": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest",

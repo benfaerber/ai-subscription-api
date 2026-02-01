@@ -22,6 +22,7 @@ export {
 // Built-in providers
 export { ChatGPTProvider } from "./providers/chatgpt"
 export { ClaudeProvider } from "./providers/claude"
+export { GeminiProvider } from "./providers/gemini"
 
 // Client
 export { SubscriptionClient, getClient, type ClientOptions } from "./client"
