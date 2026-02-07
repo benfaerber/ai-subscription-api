@@ -13,6 +13,8 @@ export type ChatOptions = {
   onChunk?: (chunk: string) => void
 }
 
+export type ChatOptionsNoSystem = Omit<ChatOptions, "system"> & { system?: never }
+
 export type ChatResponse = {
   content: string
   model: string

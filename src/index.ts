@@ -12,6 +12,7 @@ export {
 export {
   type Message,
   type ChatOptions,
+  type ChatOptionsNoSystem,
   type ChatResponse,
   type LoginSession,
   type LoginCallback,

@@ -1,6 +1,6 @@
 import {
   BaseProvider,
-  type ChatOptions,
+  type ChatOptionsNoSystem,
   type ChatResponse,
   type LoginCallback,
   type LoginSession,
@@ -117,7 +117,7 @@ export class ClaudeProvider extends BaseProvider {
     }
   }
 
-  async chat(messages: Message[], options?: ChatOptions): Promise<ChatResponse> {
+  async chat(messages: Message[], options?: ChatOptionsNoSystem): Promise<ChatResponse> {
     const creds = await this.getValidCredentials()
     const model = options?.model || this.defaultModel
 
@@ -139,7 +139,7 @@ export class ClaudeProvider extends BaseProvider {
       body: JSON.stringify({
         model,
         max_tokens: options?.maxTokens || 4096,
-        system: options?.system || "You are Claude Code, Anthropic's official CLI for Claude.",
+        system: "You are Claude Code, Anthropic's official CLI for Claude.",
         messages: apiMessages,
         stream: streaming,
       }),
