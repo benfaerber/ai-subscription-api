@@ -155,6 +155,7 @@ const client = new SubscriptionClient({
 
 - `claude-sonnet-4-5-20250929` (default)
 - `claude-opus-4-5-20251101`
+- `claude-opus-4-6`
 - `claude-haiku-4-5-20251001`
 
 ### ChatGPT
@@ -164,6 +165,7 @@ const client = new SubscriptionClient({
 - `gpt-5.1-codex-mini`
 - `gpt-5.1-codex-max`
 - `gpt-5.2-codex`
+- `gpt-5.3-codex`
 
 ### Gemini
 

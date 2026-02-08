@@ -86,7 +86,7 @@ const HTML_ERROR = (e: string) => `<!doctype html>
 export class ChatGPTProvider extends BaseProvider {
   readonly name = "ChatGPT"
   readonly id = "chatgpt"
-  readonly models = ["gpt-5.2", "gpt-5.1-codex", "gpt-5.1-codex-mini", "gpt-5.1-codex-max", "gpt-5.2-codex"]
+  readonly models = ["gpt-5.2", "gpt-5.1-codex", "gpt-5.1-codex-mini", "gpt-5.1-codex-max", "gpt-5.2-codex", "gpt-5.3-codex"]
   readonly defaultModel = "gpt-5.2"
 
   constructor(store: CredentialStore) {
